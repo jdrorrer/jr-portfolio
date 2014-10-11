@@ -153,7 +153,7 @@ h1:before {
 
 .logo {
 	width: 75px;
-	padding: 0 0 0 $base-font-size;
+	padding: 0 0 0 $base-line-height;
 	opacity: .3;
 }
 
@@ -193,10 +193,10 @@ nav {
 }
 
 .fi-list {
-	display: none;
-	top: -13px;
-	margin-bottom: 0;
-	padding-bottom: 0;
+	display: inline;
+	top: 1px;
+	float: right;
+	padding-right: $base-line-height;
 	font-size: $h1*1.25;
 	color: darken($cream, 15%);
 }
@@ -319,7 +319,7 @@ nav {
 
 	.logo {
 		width: 95px;
-		padding: 0 0 0 $base-font-size;
+		padding: 0 0 0 $base-line-height;
 	}
 
 	nav {
@@ -338,7 +338,6 @@ nav {
 	}
 
 	.fi-list {
-		font-size: $h1;
 		display: none;
 	}
 
