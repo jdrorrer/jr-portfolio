@@ -4,7 +4,7 @@ $(document).foundation();
 
 // Show active link on navigation
 $('.main-nav ul li a').click(function() {
-	//remove class from prior active link
+	//Remove class from prior active link
 	$('.selected').removeClass('selected');
 	//"this" is current link clicked
 	$(this).addClass('selected');
@@ -32,7 +32,7 @@ $(window).resize(function() {
 //Show and hide nav menu when hamburger icon clicked
 $('a.hamburger').click(function() {
 	$('.main-nav').toggleClass('menu-hidden');
-	//Also, hide the nav menu when a link is clicked and the window is <= 768px
+	//Hide the nav menu when a link is clicked and the window is <= 768px
 	if($('.fi-list').css('display') != 'none') {
 		$('.main-nav ul li a').click(function() {
 			$('.main-nav').addClass('menu-hidden');
