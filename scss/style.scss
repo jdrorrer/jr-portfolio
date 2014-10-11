@@ -56,17 +56,14 @@ $gray: #444344;
 	padding-bottom: 0;
 }
 
-.right {
-	padding-bottom: 0;
-}
+// .right {
+// 	padding-bottom: 0;
+// }
 
-.inline-list {
-	padding-bottom: 0;
-	//fix for 13px where responsiveness of header was off - from 768 to 781px
-	& li:first-child {
-		margin-left: 0;
-	}
-}
+// .inline-list {
+// 	padding-bottom: 0;
+// }
+
 
 //Page Styles
 body {
@@ -167,13 +164,44 @@ h1:before {
 	margin-bottom: 0;
 }
 
-nav {
+.main-nav {
 	padding: $base-font-size $base-font-size 0 0;
+	// display: block;
 	& a {
 		@include link-colors($gray, $red, $red);
+		&:hover {
+			border-bottom: 2px solid $red;
+		}
 	}
+}
+
+// .right {
+// 	right: 35%;
+// }
+
+
+.main-nav ul {
+	margin: $base-line-height 0;
+	display: block;
+	list-style-type: none;
+}
+
+.main-nav ul li {
+	padding: $base-font-size/2 0;
+	text-align: center;
+}
+
+.selected {
+	// text-decoration: underline;
+	font-weight: $font-weight-bold;
+	color: $gray;
+	border-bottom: 2px solid $gray;
+}
+
+.menu-hidden {
 	display: none;
 }
+
 
 //Footer
 .main-footer {
@@ -195,33 +223,79 @@ nav {
 }
 
 .fi-list {
-	display: inline;
+	display: block;
 	top: 1px;
 	float: right;
-	padding-right: $base-line-height;
+	padding: 0 $base-line-height;
 	font-size: $h1*1.25;
 	color: darken($cream, 15%);
 }
 
-.inline-list .fi-home {
+.main-nav ul li .fi-home {
 	display: none;
 }
 
-.inline-list .fi-torso-business {
+.main-nav ul li .fi-torso-business {
 	display: none;
 }
 
-.inline-list .fi-laptop {
+.main-nav ul li .fi-laptop {
 	display: none;
 }
 
-.inline-list .fi-mail {
+.main-nav ul li .fi-mail {
 	display: none;
 }
 
 
 
 //Media Queries
+
+//Display hamburger menu items horizontally between medium and small screen sizes
+@media only screen and (min-width: 641px) and (max-width: 768px) {
+
+
+	.main-nav {
+		padding: $base-font-size $base-font-size 0 0;
+		display: block;
+		right: 0;
+		& a:hover {
+			border-bottom: none;
+		}
+	}
+
+	// .right {
+	// 	right: 0;
+	// }
+
+	.main-nav ul {
+		margin: $base-line-height 0;
+		text-align: center;
+	}
+
+	.main-nav ul li {
+		padding: $base-font-size 0 $base-font-size $base-font-size;
+		display: inline;
+	}
+
+	.main-nav ul br {
+		display: none;
+		&:first-child {
+			display: block;
+		}
+		&:nth-child(2) {
+			display: block;
+		}
+	}
+
+	.main-nav ul li a {
+		display: inline-block
+	}
+
+	.menu-hidden {
+		display: none;
+	}
+}
 
 //Medium screen size and up
 @media only screen and (min-width: 769px) { 
@@ -259,19 +333,48 @@ nav {
 		padding: 0 0 0 $base-line-height;
 	}
 
-	nav {
+	.main-nav {
 		padding: $base-font-size $base-font-size 0 0;
 		display: block;
+		float: right;
+		right: 0;
+		& a:hover {
+			border-bottom: none;
+		}
+	}
+
+	// .right {
+	// 	right: 0;
+	// }
+
+	.main-nav ul {
+		margin: 0;
+	}
+
+	.main-nav ul li {
+		padding: $base-font-size 0 $base-font-size $base-font-size;
+		display: inline;
+	}
+
+	.main-nav ul br {
+		display: none;
+	}
+
+	// .main-nav ul li:first-child  {
+	// 	//fix for 13px where responsiveness of header was off - from 768 to 781px
+	// 	margin-left: 0;
+	// }
+
+	.main-nav ul li a {
+		display: inline-block
 	}
 
 	.selected {
-		color: darken($gray, 5%);
-		font-weight: $font-weight-bold;
+		border-bottom: none;
 	}
 
 	.fi-list {
 		display: none;
 	}
-
 }
 
