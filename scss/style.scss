@@ -56,16 +56,14 @@ $gray: #444344;
 	padding-bottom: 0;
 }
 
-// .right {
-// 	padding-bottom: 0;
-// }
-
-// .inline-list {
-// 	padding-bottom: 0;
-// }
-
 
 //Page Styles
+html {
+	background: url(../img/jr-portfolio-bg.jpg) no-repeat center center fixed;
+	@include background-size(cover);
+	z-index: 200;
+}
+
 body {
 	font-family: $serif-fonts;
 	font-weight: $font-weight-normal;
@@ -78,12 +76,14 @@ body {
 	}
 	& .home {
 		@include main-section-style($navy, $cream);
+		background: url(../img/jr-portfolio-bg.png) no-repeat center center fixed;
+		@include background-size(cover);
 	}
 	& .about, .contact {
 		@include main-section-style($cream, $gray);
 	}
 	& .work {
-		@include main-section-style($teal, $cream);
+		@include main-section-style($navy, $cream);
 	}
 }
 
@@ -128,6 +128,156 @@ h6 {
 	margin-bottom: rhythm(1, $h6);
 }
 
+.about-img {
+	@include border-radius(100%);
+	display: block;
+	margin: 0 auto $base-line-height auto;
+	border: solid 10px darken($cream, 10%);
+}
+
+// .img-container {
+// 	width: 600px;
+// 	margin: auto;
+// 	padding: $base-line-height 0;
+// 	text-align: center;
+// 	background-color: $cream;
+// 	box-shadow: 0 5px 0 darken($cream, 10%);
+// 	@include border-radius(10px);
+// }
+
+.img-box {
+	width: 600px;
+	margin: auto;
+	text-align: center;
+}
+
+.work-img {
+	@include border-radius(100%);
+	margin: $base-line-height/2 $base-line-height;
+	border: solid 10px lighten($navy, 10%);
+	// box-shadow: 0 1px 5px lighten($navy, 25%);
+	a &:hover {
+		border: 2px solid $cream;
+	}
+}
+
+//CSS classes for imageLightBox additions
+
+// #imagelightbox {
+//     position: fixed;
+//     z-index: 9999;
+//     -ms-touch-action: none;
+//     touch-action: none;
+// }
+
+// #imagelightbox-overlay {
+// 	background-color: #fff;
+// 	background-color: rgba( 255, 255, 255, .9 );
+// 	position: fixed;
+// 	z-index: 9998;
+// 	top: 0;
+// 	right: 0;
+// 	bottom: 0;
+// 	left: 0;
+// }
+
+// #imagelightbox-caption {
+// 	text-align: center;
+// 	color: #fff;
+// 	background-color: #666;
+// 	position: fixed;
+// 	z-index: 10001;
+// 	left: 0;
+// 	right: 0;
+// 	bottom: 0;
+// 	padding: 0.625em;
+// }
+
+// #imagelightbox-close {
+// 	width: 2.5em;
+// 	height: 2.5em;
+// 	text-align: left;
+// 	background-color: #666;
+// 	border-radius: 50%;
+// 	position: fixed;
+// 	z-index: 10002;
+// 	top: 2.5em;
+// 	right: 2.5em;
+// 	-webkit-transition: color .3s ease;
+// 	transition: color .3s ease;
+// }
+
+
+// #imagelightbox-close:before, #imagelightbox-close:after {
+// 	width: 2px;
+// 	background-color: #fff;
+// 	content: '';
+// 	position: absolute;
+// 	top: 20%;
+// 	bottom: 20%;
+// 	left: 50%;
+// 	margin-left: -1px;
+// }
+
+// #imagelightbox-close:before {
+// 	-webkit-transform: rotate( 45deg );
+// 	-ms-transform: rotate( 45deg );
+// 	transform: rotate( 45deg );
+// }
+
+// #imagelightbox-close:after {
+// 	-webkit-transform: rotate( -45deg );
+// 	-ms-transform: rotate( -45deg );
+// 	transform: rotate( -45deg );
+// }
+
+// .imagelightbox-arrow {
+// 	width: 3.75em;
+// 	height: 7.5em;
+// 	background-color: #444;
+// 	background-color: rgba( 0, 0, 0, .5 );
+// 	vertical-align: middle;
+// 	display: none;
+// 	position: fixed;
+// 	z-index: 10001;
+// 	top: 50%;
+// 	margin-top: -3.75em;
+// }
+
+// .imagelightbox-arrow-left {
+// 	left: 2.5em;
+// }
+
+// .imagelightbox-arrow-right {
+// 	right: 2.5em;
+// }
+
+// .imagelightbox-arrow:before {
+// 	width: 0;
+// 	height: 0;
+// 	border: 1em solid transparent;
+// 	content: '';
+// 	display: inline-block;
+// 	margin-bottom: -0.125em;
+// }
+
+// .imagelightbox-arrow-left:before {
+// 	border-left: none;
+// 	border-right-color: #fff;
+// 	margin-left: -0.313em;
+// }
+
+// .imagelightbox-arrow-right:before {
+// 	border-right: none;
+// 	border-left-color: #fff;
+// 	margin-right: -0.313em;
+// }
+
+// #imagelightbox-loading, #imagelightbox-overlay, #imagelightbox-close, #imagelightbox-caption, #imagelightbox-nav, .imagelightbox-arrow {
+// 	-webkit-animation: fade-in .25s linear;
+// 	animation: fade-in .25s linear;
+// }
+
 //Header
 header {
 	position: fixed;
@@ -138,16 +288,27 @@ header {
 	margin-bottom: 1px;
 	z-index: 100;
 	border-bottom: 1px solid $cream;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+	box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+	@include single-transition(padding, 0.25s, linear);
+}
+
+.shrink-header {
+	padding: 5px 0;
 }
 
 //Sticky Nav Anchor Link Fix
 h1:before { 
   display: block; 
   content: " "; 
+  margin-top: -115px; 
+  height: 115px; 
+  visibility: hidden; 
+}
+
+//Sticky Nav Anchor Link Fix Exception for Home Section
+#home-section:before { 
   margin-top: -130px; 
   height: 130px; 
-  visibility: hidden; 
 }
 
 .logo {
@@ -165,7 +326,7 @@ h1:before {
 }
 
 .main-nav {
-	padding: $base-font-size $base-font-size 0 0;
+	padding: $base-font-size $base-line-height $base-font-size 0;
 	// display: block;
 	& a {
 		@include link-colors($gray, $red, $red);
@@ -174,11 +335,6 @@ h1:before {
 		}
 	}
 }
-
-// .right {
-// 	right: 35%;
-// }
-
 
 .main-nav ul {
 	margin: $base-line-height 0;
@@ -211,8 +367,12 @@ h1:before {
 	padding: $base-line-height*2 0 $base-line-height 0;
 }
 
+footer p {
+	margin-top: $base-line-height;
+}
+
 //Icons
-[class*="fi-"] {
+.main-nav li [class*="fi-"] {
 	font-size: $h1;
 	text-align: center;
 	color: $gray;
@@ -220,6 +380,18 @@ h1:before {
 	top: -45px;
 	margin: 0;
 	padding: 0;
+}
+
+footer a {
+	font-size: $h1;
+	color: $cream;
+	padding-left: $base-line-height;
+	&:hover {
+		color: $red;
+	}
+	&:first-child {
+		padding-left: 0;
+	}
 }
 
 .fi-list {
@@ -263,10 +435,6 @@ h1:before {
 			border-bottom: none;
 		}
 	}
-
-	// .right {
-	// 	right: 0;
-	// }
 
 	.main-nav ul {
 		margin: $base-line-height 0;
@@ -324,8 +492,14 @@ h1:before {
 
 	//Sticky Nav Anchor Link Fix
 	h1:before { 
+	  margin-top: -133px; 
+	  height: 133px;  
+	}
+
+	//Sticky Nav Anchor Link Fix Exception for Home Section
+	#home-section:before { 
 	  margin-top: -189px; 
-	  height: 189px;  
+	  height: 189px; 
 	}
 
 	.logo {
@@ -343,10 +517,6 @@ h1:before {
 		}
 	}
 
-	// .right {
-	// 	right: 0;
-	// }
-
 	.main-nav ul {
 		margin: 0;
 	}
@@ -359,11 +529,6 @@ h1:before {
 	.main-nav ul br {
 		display: none;
 	}
-
-	// .main-nav ul li:first-child  {
-	// 	//fix for 13px where responsiveness of header was off - from 768 to 781px
-	// 	margin-left: 0;
-	// }
 
 	.main-nav ul li a {
 		display: inline-block

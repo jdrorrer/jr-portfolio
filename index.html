@@ -8,6 +8,7 @@
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400italic,400,300,700,300italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="stylesheets/app.css" />
     <link rel="stylesheet" href="stylesheets/foundation-icons.css" />
+    <link rel="stylesheet" href="stylesheets/magnific-popup.css" /> 
     <link rel="stylesheet" href="stylesheets/style.css" />
     <!-- <link rel="stylesheet" href="http://basehold.it/32"> -->
     <script src="bower_components/modernizr/modernizr.js"></script>
@@ -32,13 +33,13 @@
             <ul>
               <br>
               <br>
-              <li><a href="#home-section" class="selected">Home</a><i class="fi-home"></i></li>
+              <li><a href="#" data-scroll="home-section" class="selected">Home</a><i class="fi-home"></i></li>
               <br>
-              <li><a href="#about-section">About</a><i class="fi-torso-business"></i></li>
+              <li><a href="#" data-scroll="about-section">About</a><i class="fi-torso-business"></i></li>
               <br>
-              <li><a href="#work-section">Work</a><i class="fi-laptop"></i></li>
+              <li><a href="#" data-scroll="work-section">Work</a><i class="fi-laptop"></i></li>
               <br>
-              <li><a href="#contact-section">Contact</a><i class="fi-mail"></i></li>
+              <li><a href="#" data-scroll="contact-section">Contact</a><i class="fi-mail"></i></li>
               <br>
             </ul>
           </nav>
@@ -49,7 +50,7 @@
     <div class="home">
       <div class="row">
         <div class="small-10 small-centered medium-8 medium-centered large-6 large-centered columns">
-          <h1 id="home-section">Home</h1>
+          <h1 id="home-section" data-anchor="home-section">Home</h1>
           <!-- <img class="feat-img" src="http://lorempixel.com/400/300" /> -->
           <p>Bacon ipsum dolor sit amet chicken pork ground round brisket corned beef ball tip shank tail salami filet mignon ham hock pork belly venison shankle. Pig kielbasa drumstick sausage pork chop boudin. Chicken t-bone salami pork chop, beef ribs kevin ham tri-tip beef venison biltong brisket.</p>
           <p>Venison strip steak meatball chicken, brisket prosciutto sirloin. Capicola drumstick brisket tri-tip salami. Chicken beef jerky, tail turkey prosciutto cow ham sirloin boudin tenderloin.</p>
@@ -60,7 +61,8 @@
     <div class="about">
       <div class="row">
         <div class="small-10 small-centered medium-8 medium-centered large-6 large-centered columns">
-          <h1 id="about-section">About</h1>
+          <h1 id="about-section" data-anchor="about-section">About</h1>
+          <img src="img/About.jpg" class="about-img" alt="About Me" height="105" width="105">
           <p>Strip steak tenderloin kevin swine meatloaf capicola, doner beef turducken pancetta corned beef pork loin shoulder.</p>
           <hr>
           <p>Pork filet mignon leberkas, tail swine venison pancetta turkey shoulder brisket chalkers likes hamburgers.</p>
@@ -73,9 +75,43 @@
     <div class="work">
       <div class="row">
         <div class="small-10 small-centered medium-8 medium-centered large-6 large-centered columns">
-          <h1 id="work-section">Work</h1>
+          <h1 id="work-section" data-anchor="work-section">Work</h1>
           <!-- <img class="feat-img" src="http://lorempixel.com/400/300" /> -->
           <p>Bacon ipsum dolor sit amet chicken pork ground round brisket corned beef ball tip shank tail salami filet mignon ham hock pork belly venison shankle. Pig kielbasa drumstick sausage pork chop boudin. Chicken t-bone salami pork chop, beef ribs kevin ham tri-tip beef venison biltong brisket.</p>
+          <div class="row img-container">
+            <div class="row img-box">
+              <a href="img/Britney-large.jpg" title="Britney Illustration">
+                <img src="img/Britney-small.jpg" class="britney-small-img work-img" alt="Britney Illustration" height="108" width="108">
+              </a>
+              <a href="img/DareToCare-large.jpg" title="Dare to Care Picture Board">
+                <img src="img/DareToCare-small.jpg" class="dare-to-care-small-img work-img" alt="Dare to Care Picture Board" height="108" width="108">
+              </a>
+            </div>
+
+            <div class="row img-box">
+              <a href="img/wedding-large.jpg" title="Wedding Invitation Suite">
+                <img src="img/wedding-small.jpg" class="wedding-small-img work-img" alt="Wedding Invitation Suite" height="108" width="108">
+              </a>
+              <a href="img/Henry-large.jpg" title="Henry Digital Painting">
+                <img src="img/Henry-small.jpg" class="henry-small-img work-img" alt="Henry Digital Painting" height="108" width="108">
+              </a>
+              <a href="img/turtle-large.jpg" title="Turtle Illustration">
+                <img src="img/turtle-small.jpg" class="turtle-small-img work-img" alt="Turtle Illustration" height="108" width="108">
+              </a>
+            </div>
+
+            <div class="row img-box">
+              <a href="img/alicia-large.png" title="Illustration for Chris and Alicia's Wedding">
+                <img src="img/alicia-small.png" class="alicia-small-img work-img" alt="Illustration for Chris and Alicia's Wedding" height="108" width="108">
+              </a>
+              <a href="img/ooforia-large.jpg" title="Logo Design and App Design for Startup Ooforia">
+                <img src="img/ooforia-small.jpg" class="ooforia-small-img work-img" alt="Logo Design and App Design for Startup Ooforia" height="108" width="108">
+              </a>
+            </div>
+          </div>
+
+          <br>
+
           <p>Venison strip steak meatball chicken, brisket prosciutto sirloin. Capicola drumstick brisket tri-tip salami. Chicken beef jerky, tail turkey prosciutto cow ham sirloin boudin tenderloin.</p>
         </div>
       </div>
@@ -84,7 +120,7 @@
     <div class="contact">
       <div class="row">
         <div class="small-10 small-centered medium-8 medium-centered large-6 large-centered columns">
-          <h1 id="contact-section">Contact</h1>
+          <h1 id="contact-section" data-anchor="contact-section">Contact</h1>
           <p>Strip steak tenderloin kevin swine meatloaf capicola, doner beef turducken pancetta corned beef pork loin shoulder.</p>
           <hr>
           <p>Pork filet mignon leberkas, tail swine venison pancetta turkey shoulder brisket chalkers likes hamburgers.</p>
@@ -96,12 +132,28 @@
 
     <div class="main-footer">
       <footer>
+        <a href="http://teamtreehouse.com/jakerorrer">
+          <i class="fi-social-treehouse"></i>
+        </a>
+        <a href="http://instagram.com/jdrorrer">
+          <i class="fi-social-instagram"></i>
+        </a>
+        <a href="http://twitter.com/jdrorrer">
+          <i class="fi-social-twitter"></i>
+        </a>
+        <a href="http://github.com/jdrorrer">
+          <i class="fi-social-github"></i>
+        </a>
+        <a href="mailto:jdrorrer@gmail.com">
+          <i class="fi-mail"></i>
+        </a>
         <p>&copy;2014 Jake Rorrer</p>
       </footer>
     </div>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="js/magnific-popup.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
