@@ -25,8 +25,32 @@ $font-weight-light: 300;
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 
+
+//Fonts
 $sans-fonts: Lato, Helvetica Neue, Helvetica, Arial, Sans-serif;
 $serif-fonts: Merriweather, Arial, Serif;
+
+@font-face {
+	font-family: Langdon;
+	src: url("../fonts/Langdon.otf") format("opentype");
+	src: url('../fonts/Langdon.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Langdon.woff') format('woff'),
+         url('../fonts/Langdon.svg') format('svg');
+	font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'cac_champagneregular';
+    src: url('../fonts/cac_champagne-webfont.eot');
+    src: url('../fonts/cac_champagne-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cac_champagne-webfont.woff') format('woff'),
+         url('../fonts/cac_champagne-webfont.ttf') format('truetype'),
+         url('../fonts/cac_champagne-webfont.svg#cac_champagneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 
 //Color Variables
@@ -47,19 +71,19 @@ $gray: #444344;
 }
 
 //Resetting Foundation default styles where appropriate
-.row {
-	padding: 0;
-	margin-bottom: 0;
-}
+// .row {
+// 	padding: 0;
+// 	margin-bottom: 0;
+// }
 
-.columns {
-	padding-bottom: 0;
-}
+// .columns {
+// 	padding-bottom: 0;
+// }
 
 
 //Page Styles
 html {
-	background: url(../img/jr-portfolio-bg.jpg) no-repeat center center fixed;
+	background: url(../img/jr-portfolio-bg.png) no-repeat center center fixed;
 	@include background-size(cover);
 	z-index: 200;
 }
@@ -145,6 +169,28 @@ h6 {
 // 	@include border-radius(10px);
 // }
 
+
+.banner {
+	font-family: Langdon, $sans-fonts;
+	font-size: 400%;
+	margin: 0;
+	line-height: $base-line-height*2;
+	text-align: center;
+}
+
+.subtitle {
+	font-family: Lobster, cursive, $serif-fonts;
+	font-size: 150%;
+	margin: 0;
+	line-height: $base-line-height;
+	text-align: center;
+}
+
+.spaceman {
+	margin: $base-line-height*2 auto 0 auto;
+	display: block;
+}
+
 .img-box {
 	width: 600px;
 	margin: auto;
@@ -161,122 +207,6 @@ h6 {
 	}
 }
 
-//CSS classes for imageLightBox additions
-
-// #imagelightbox {
-//     position: fixed;
-//     z-index: 9999;
-//     -ms-touch-action: none;
-//     touch-action: none;
-// }
-
-// #imagelightbox-overlay {
-// 	background-color: #fff;
-// 	background-color: rgba( 255, 255, 255, .9 );
-// 	position: fixed;
-// 	z-index: 9998;
-// 	top: 0;
-// 	right: 0;
-// 	bottom: 0;
-// 	left: 0;
-// }
-
-// #imagelightbox-caption {
-// 	text-align: center;
-// 	color: #fff;
-// 	background-color: #666;
-// 	position: fixed;
-// 	z-index: 10001;
-// 	left: 0;
-// 	right: 0;
-// 	bottom: 0;
-// 	padding: 0.625em;
-// }
-
-// #imagelightbox-close {
-// 	width: 2.5em;
-// 	height: 2.5em;
-// 	text-align: left;
-// 	background-color: #666;
-// 	border-radius: 50%;
-// 	position: fixed;
-// 	z-index: 10002;
-// 	top: 2.5em;
-// 	right: 2.5em;
-// 	-webkit-transition: color .3s ease;
-// 	transition: color .3s ease;
-// }
-
-
-// #imagelightbox-close:before, #imagelightbox-close:after {
-// 	width: 2px;
-// 	background-color: #fff;
-// 	content: '';
-// 	position: absolute;
-// 	top: 20%;
-// 	bottom: 20%;
-// 	left: 50%;
-// 	margin-left: -1px;
-// }
-
-// #imagelightbox-close:before {
-// 	-webkit-transform: rotate( 45deg );
-// 	-ms-transform: rotate( 45deg );
-// 	transform: rotate( 45deg );
-// }
-
-// #imagelightbox-close:after {
-// 	-webkit-transform: rotate( -45deg );
-// 	-ms-transform: rotate( -45deg );
-// 	transform: rotate( -45deg );
-// }
-
-// .imagelightbox-arrow {
-// 	width: 3.75em;
-// 	height: 7.5em;
-// 	background-color: #444;
-// 	background-color: rgba( 0, 0, 0, .5 );
-// 	vertical-align: middle;
-// 	display: none;
-// 	position: fixed;
-// 	z-index: 10001;
-// 	top: 50%;
-// 	margin-top: -3.75em;
-// }
-
-// .imagelightbox-arrow-left {
-// 	left: 2.5em;
-// }
-
-// .imagelightbox-arrow-right {
-// 	right: 2.5em;
-// }
-
-// .imagelightbox-arrow:before {
-// 	width: 0;
-// 	height: 0;
-// 	border: 1em solid transparent;
-// 	content: '';
-// 	display: inline-block;
-// 	margin-bottom: -0.125em;
-// }
-
-// .imagelightbox-arrow-left:before {
-// 	border-left: none;
-// 	border-right-color: #fff;
-// 	margin-left: -0.313em;
-// }
-
-// .imagelightbox-arrow-right:before {
-// 	border-right: none;
-// 	border-left-color: #fff;
-// 	margin-right: -0.313em;
-// }
-
-// #imagelightbox-loading, #imagelightbox-overlay, #imagelightbox-close, #imagelightbox-caption, #imagelightbox-nav, .imagelightbox-arrow {
-// 	-webkit-animation: fade-in .25s linear;
-// 	animation: fade-in .25s linear;
-// }
 
 //Header
 header {
@@ -326,7 +256,7 @@ h1:before {
 }
 
 .main-nav {
-	padding: $base-font-size $base-line-height $base-font-size 0;
+	padding: $base-font-size $base-line-height $base-font-size $base-line-height;
 	// display: block;
 	& a {
 		@include link-colors($gray, $red, $red);
@@ -485,6 +415,42 @@ footer a {
 		padding-top: 138px; //height of header
 	}
 
+	//Aligning Site Banner
+	.row-container {
+		@include flexbox((
+			display: flex,
+			align-items: center,
+			justify-content: center
+		));
+	}
+	
+	//Fix for home navigation when flexbox layout for banner
+	#home-section {	
+		display: block;
+		margin-bottom: 0;
+		padding: 0;
+	}
+
+	.banner {
+		font-size: 1000%;
+		line-height: $base-line-height*6;
+		text-align: right;
+	}
+
+	.subtitle {
+		font-size: 425%;
+		text-align: right;
+	}
+
+	.spaceman {
+		margin: $base-line-height*2 auto;
+		float: left;
+	}
+
+	.columns.small-centered.clear-margin {
+		margin: 0;
+	}
+
 	//Header
 	header {
 		padding: $base-line-height 0;
@@ -542,4 +508,45 @@ footer a {
 		display: none;
 	}
 }
+
+//Large screen banner text fix
+@media only screen and (min-width: 913px) and (max-width: 1202px) { 
+	.banner {
+		font-size: 800%;
+		line-height: $base-line-height*4;
+	}
+
+	.subtitle {
+		font-size: 340%;
+	}
+}
+
+
+//Medium to Large screen banner text fix
+@media only screen and (min-width: 769px) and (max-width: 913px) {
+	.banner {
+		font-size: 600%;
+		line-height: $base-line-height*3;
+	}
+
+	.subtitle {
+		font-size: 255%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

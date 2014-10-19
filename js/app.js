@@ -93,29 +93,8 @@ $(window).scroll(function() {
 	}
 }).scroll();
 
-// //Code to instantiate imageLightBox plugin
-// $(function() {
-// 	$('a').imageLightbox();
-// });
 
-// //Code to add style elements to imageLightBox plugin
-// var imgAltText = $('.work-img').attr('alt')
-// var $overlay = $('<div id="imagelightbox-overlay"></div>');
-// var $closeButton = $('<button type="button" id="imagelightbox-close" title="Close"></button>');
-// var $leftArrow = $('<button type="button" class="imagelightbox-arrow imagelightbox-arrow-left" style="display: block;"></button>');
-// var $rightArrow = $('<button type="button" class="imagelightbox-arrow imagelightbox-arrow-right" style="display: block;"></button>');
-// var $caption = $('<div id="imagelightbox-caption">' + imgAltText + '</div>');
-
-// $overlay.append([$closeButton, $leftArrow, $rightArrow, $caption]);
-
-// $('.work-img').click(function() {
-// 	$('body').append($overlay);
-// });
-
-// $overlay.click(function() {
-// 	$overlay.remove();
-// });
-
+//Code to implement Magnific Popup Lightbox
 $('.img-box').magnificPopup({
   delegate: 'a', // child items selector, by clicking on it popup will open
   type: 'image',
