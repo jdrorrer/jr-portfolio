@@ -111,6 +111,11 @@ body {
 	}
 }
 
+.main-content a {
+	background-color: darken($cream, 5%);
+	@include link-colors($gray, $red, $red);
+}
+
 #{ headings(all) } {
 	font-family: $sans-fonts;
 }
@@ -150,6 +155,17 @@ h6 {
 	@include adjust-font-size-to($h6); 
 	font-weight: $font-weight-bold;
 	margin-bottom: rhythm(1, $h6);
+}
+
+.checklist {
+	background-color: $teal;
+	padding: $base-line-height*2;
+	border-radius: 5px;
+	box-shadow: 0 5px 0 darken($teal, 10%);
+}
+
+.checklist-item {
+	font-weight: $font-weight-bold;
 }
 
 .about-img {
@@ -195,13 +211,16 @@ h6 {
 	width: 600px;
 	margin: auto;
 	text-align: center;
+	& a {
+		background-color: $navy;
+	}
 }
 
 .work-img {
 	@include border-radius(100%);
-	margin: $base-line-height/2 $base-line-height;
+	margin: $base-line-height auto;
 	border: solid 10px lighten($navy, 10%);
-	// box-shadow: 0 1px 5px lighten($navy, 25%);
+	display: block;
 	a &:hover {
 		border: 2px solid $cream;
 	}
@@ -312,9 +331,14 @@ footer p {
 	padding: 0;
 }
 
-footer a {
+.social-icons {
+	text-align: center;
+}
+
+.social-icons a {
 	font-size: $h1;
-	color: $cream;
+	color: $gray;
+	background-color: $cream;
 	padding-left: $base-line-height;
 	&:hover {
 		color: $red;
@@ -392,6 +416,11 @@ footer a {
 
 	.menu-hidden {
 		display: none;
+	}
+
+	.work-img {
+		margin: $base-line-height/2 $base-line-height;
+		display: inline;
 	}
 }
 
