@@ -352,9 +352,10 @@ footer p {
 }
 
 .fi-check {
-	font-size: $h1*1.25;
+	font-size: $base-font-size;
 	color: $cream;
-	padding-right: $base-font-size;
+	padding-right: 20px;
+	margin-left: -2rem;
 }
 
 
@@ -492,6 +493,13 @@ footer p {
 
 	.fi-list {
 		display: none;
+	}
+
+	.fi-check {
+		font-size: $h4;
+		color: $cream;
+		padding-right: 7px;
+		margin-left: -1.25rem;
 	}
 }
 
