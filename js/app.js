@@ -94,6 +94,25 @@ $(window).scroll(function() {
 }).scroll();
 
 
+//Reveal additional text when 'more' is clicked and hide text when 'less' clicked
+$(document).ready(function() {
+  $('.checklist-item').click(function () {
+    $(this).next('p').animate({
+            height: "toggle",
+            opacity: "toggle"
+        }, 400);
+      var expand = $(this).find('span');
+      expand.fadeOut(500, function() {
+          if (expand.html() == "more") {
+              expand.html("less");
+          } else {
+              expand.html("more");
+          }
+          expand.fadeIn(500);
+      });
+  });
+});
+
 //Code to implement Magnific Popup Lightbox
 $('.img-box').magnificPopup({
   delegate: 'a', // child items selector, by clicking on it popup will open
@@ -101,6 +120,7 @@ $('.img-box').magnificPopup({
   // other options
   gallery:{enabled:true}
 });
+
 
 
 

@@ -3,8 +3,15 @@
 //Compass Imports
 @import "compass/css3";
 @import "compass/typography";
+@import "compass/utilities";
 
-//Mobile-first Design
+//Sprite Sheet
+// $images-layout: "smart";
+// $sprite-image-default-width: 108px;
+// $sprite-image-default-height: 108px;
+// @import "images/*.png";
+// @include all-images-sprites;
+
 
 //Typography Variables
 $rhythm-unit: "rem";
@@ -27,7 +34,7 @@ $font-weight-bold: 700;
 
 
 //Fonts
-$sans-fonts: Lato, Helvetica Neue, Helvetica, Arial, Sans-serif;
+$sans-fonts: Lato, "Helvetica Neue", Helvetica, Arial, Sans-serif;
 $serif-fonts: Merriweather, Arial, Serif;
 
 @font-face {
@@ -52,7 +59,6 @@ $serif-fonts: Merriweather, Arial, Serif;
 }
 
 
-
 //Color Variables
 $navy: #2B344D;
 $cream: #F8F7EE;
@@ -69,16 +75,6 @@ $gray: #444344;
 		color: $color;
 	}
 }
-
-//Resetting Foundation default styles where appropriate
-// .row {
-// 	padding: 0;
-// 	margin-bottom: 0;
-// }
-
-// .columns {
-// 	padding-bottom: 0;
-// }
 
 
 //Page Styles
@@ -113,7 +109,7 @@ body {
 
 .main-content a {
 	background-color: darken($cream, 5%);
-	@include link-colors($gray, $red, $red);
+	@include link-colors($gray, $red, $red, $gray, $red);
 }
 
 #{ headings(all) } {
@@ -160,12 +156,24 @@ h6 {
 .checklist {
 	background-color: $teal;
 	padding: $base-line-height*2;
-	border-radius: 5px;
+	@include border-radius(5px);
 	box-shadow: 0 5px 0 darken($teal, 10%);
 }
 
 .checklist-item {
-	font-weight: $font-weight-bold;
+	cursor: pointer;
+	span {
+		background-color: darken($teal, 5%);
+		margin-left: 20px;
+		&:hover{
+			background-color: darken($teal, 10%);
+			color: darken($cream, 10%);
+		}
+	}
+}
+
+.checklist-description {
+	display: none;
 }
 
 .about-img {
@@ -174,16 +182,6 @@ h6 {
 	margin: 0 auto $base-line-height auto;
 	border: solid 10px darken($cream, 10%);
 }
-
-// .img-container {
-// 	width: 600px;
-// 	margin: auto;
-// 	padding: $base-line-height 0;
-// 	text-align: center;
-// 	background-color: $cream;
-// 	box-shadow: 0 5px 0 darken($cream, 10%);
-// 	@include border-radius(10px);
-// }
 
 
 .banner {
@@ -218,10 +216,9 @@ h6 {
 
 .work-img {
 	@include border-radius(100%);
-	margin: $base-line-height auto;
+	margin: $base-line-height;
 	border: solid 10px lighten($navy, 10%);
-	display: block;
-	a &:hover {
+	a &:hover, a &:focus {
 		border: 2px solid $cream;
 	}
 }
@@ -236,7 +233,6 @@ header {
 	padding: $base-line-height/2 0;
 	margin-bottom: 1px;
 	z-index: 100;
-	border-bottom: 1px solid $cream;
 	box-shadow: 0 5px 10px rgba(0,0,0,0.5);
 	@include single-transition(padding, 0.25s, linear);
 }
@@ -266,7 +262,7 @@ h1:before {
 	opacity: .3;
 }
 
-.logo:hover {
+.logo:hover, .logo:focus {
 	opacity: 1;
 }
 
@@ -276,28 +272,26 @@ h1:before {
 
 .main-nav {
 	padding: $base-font-size $base-line-height $base-font-size $base-line-height;
-	// display: block;
+	text-align: center;
 	& a {
-		@include link-colors($gray, $red, $red);
-		&:hover {
+		@include link-colors($gray, $red, $red, $gray, $red);
+		&:hover, &:focus {
 			border-bottom: 2px solid $red;
 		}
 	}
 }
 
 .main-nav ul {
-	margin: $base-line-height 0;
-	display: block;
+	margin: $base-line-height*3 0 0 0;
 	list-style-type: none;
+	clear: both;
 }
 
 .main-nav ul li {
-	padding: $base-font-size/2 0;
-	text-align: center;
+	padding: $base-font-size*1.25 0;
 }
 
 .selected {
-	// text-decoration: underline;
 	font-weight: $font-weight-bold;
 	color: $gray;
 	border-bottom: 2px solid $gray;
@@ -336,11 +330,11 @@ footer p {
 }
 
 .social-icons a {
-	font-size: $h1;
+	font-size: $h1*1.25;
 	color: $gray;
 	background-color: $cream;
 	padding-left: $base-line-height;
-	&:hover {
+	&:hover, &:focus {
 		color: $red;
 	}
 	&:first-child {
@@ -357,22 +351,11 @@ footer p {
 	color: darken($cream, 15%);
 }
 
-.main-nav ul li .fi-home {
-	display: none;
+.fi-check {
+	font-size: $h1*1.25;
+	color: $cream;
+	padding-right: $base-font-size;
 }
-
-.main-nav ul li .fi-torso-business {
-	display: none;
-}
-
-.main-nav ul li .fi-laptop {
-	display: none;
-}
-
-.main-nav ul li .fi-mail {
-	display: none;
-}
-
 
 
 //Media Queries
@@ -382,32 +365,13 @@ footer p {
 
 
 	.main-nav {
-		padding: $base-font-size $base-font-size 0 0;
+		padding: $base-font-size 0;
 		display: block;
-		right: 0;
-		& a:hover {
-			border-bottom: none;
-		}
-	}
-
-	.main-nav ul {
-		margin: $base-line-height 0;
-		text-align: center;
 	}
 
 	.main-nav ul li {
-		padding: $base-font-size 0 $base-font-size $base-font-size;
+		padding: $base-font-size;
 		display: inline;
-	}
-
-	.main-nav ul br {
-		display: none;
-		&:first-child {
-			display: block;
-		}
-		&:nth-child(2) {
-			display: block;
-		}
 	}
 
 	.main-nav ul li a {
@@ -503,13 +467,10 @@ footer p {
 	}
 
 	.main-nav {
-		padding: $base-font-size $base-font-size 0 0;
+		padding: $base-font-size $base-line-height 0 0;
 		display: block;
 		float: right;
 		right: 0;
-		& a:hover {
-			border-bottom: none;
-		}
 	}
 
 	.main-nav ul {
@@ -519,10 +480,6 @@ footer p {
 	.main-nav ul li {
 		padding: $base-font-size 0 $base-font-size $base-font-size;
 		display: inline;
-	}
-
-	.main-nav ul br {
-		display: none;
 	}
 
 	.main-nav ul li a {
