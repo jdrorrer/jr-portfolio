@@ -94,7 +94,7 @@ $(window).scroll(function() {
 }).scroll();
 
 
-//Reveal additional text when 'more' is clicked and hide text when 'less' clicked
+//Reveal additional text when 'more' is clicked in checklist box and hide text when 'less' clicked
 $(document).ready(function() {
   $('.checklist-item').click(function () {
     $(this).next('p').animate({
