@@ -117,6 +117,7 @@ $(document).ready(function() {
 $('.img-box').magnificPopup({
   delegate: 'a', // child items selector, by clicking on it popup will open
   type: 'image',
+  fixedContentPos: false,
   // other options
   gallery:{enabled:true}
 });
